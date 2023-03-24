@@ -1,0 +1,35 @@
+CREATE TABLE movie_list (id INTEGER PRIMARY KEY, title TEXT, genre TEXT, rating TEXT, release_year INTEGER, format TEXT, price INTEGER);
+
+INSERT INTO movie_list VALUES (1, "They Live", "Horror", "R", 1988, "DVD", 12);
+INSERT INTO movie_list VALUES (2, "Ghostbusters", "Comedy", "PG", 1984, "Blu-ray", 8);
+INSERT INTO movie_list VALUES (3, "Commando", "Action", "R", 1985, "DVD", 6);
+INSERT INTO movie_list VALUES (4, "The Garbage Pail Kids Movie", "Comedy", "PG", 1987, "DVD", 2);
+INSERT INTO movie_list VALUES (5, "The Sandlot", "Comedy", "PG", 1993, "VHS", 5);
+INSERT INTO movie_list VALUES (6, "Toy Story", "Family", "G", 1995, "Blu-ray", 3);
+INSERT INTO movie_list VALUES (7, "The Last Dragon", "Action", "PG13", 1985, "DVD", 10);
+INSERT INTO movie_list VALUES (8, "Dead Man Walking", "Drama", "R", 1995, "VHS", 3);
+INSERT INTO movie_list VALUES (9, "The Burning", "Horror", "R", 1981, "VHS", 11);
+INSERT INTO movie_list VALUES (10, "Field of Dreams", "Drama", "R", 1989, "Blu-ray", 8);
+INSERT INTO movie_list VALUES (11, "The Fly", "Horror", "R", 1986, "VHS", 7);
+INSERT INTO movie_list VALUES (12, "Batteries Not Included", "Drama", "PG", 1987, "DVD", 9);
+INSERT INTO movie_list VALUES (13, "Mac & Me", "Family", "PG", 1988, "Blu-ray", 1);
+INSERT INTO movie_list VALUES (14, "Nosferatu", "Horror", "Not Rated", 1922, "DVD", 4);
+INSERT INTO movie_list VALUES (15, "Enter The Dragon", "Martial Arts", "R", 1973, "DVD", 7);
+
+--display the database ordered by price.
+SELECT * FROM movie_list
+ORDER BY price desc;
+
+--display the movies ordered by genre
+SELECT title, genre, format FROM movie_list ORDER BY genre;
+
+--what is the average price of DVDs that have a PG rating?
+SELECT AVG(price) "DVD"
+FROM movie_list
+WHERE rating="PG";
+
+--what are the 5 most recently released movies?
+SELECT title, release_year
+FROM movie_list
+ORDER BY release_year desc
+limit 5;
